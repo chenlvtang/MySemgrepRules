@@ -1,8 +1,10 @@
 rules:
-- id: insecure-methods
-  patterns:
-    - pattern: <$FUNC ...>
-    - pattern-regex: \${.*}
-  message: Potential SQL Injection found. Avoid using ${} for SQL parameters. Use \#{}
-  languages: [xml]
-  severity: ERROR
+  - id: insecure-methods
+    patterns:
+      - pattern: |
+          <mapper ...>
+      - pattern-regex: \${.*}
+    message: Potential SQL Injection found. Avoid using ${} for SQL parameters. Use \#{}
+    languages:
+      - xml
+    severity: ERROR
