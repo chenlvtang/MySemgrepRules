@@ -1,6 +1,7 @@
 rules:
   - id: insecure-methods
     patterns:
+      - pattern-not-regex: \${ew.customSqlSegment}
       - pattern: |
           <mapper ...>
       - pattern-regex: \${.*}
