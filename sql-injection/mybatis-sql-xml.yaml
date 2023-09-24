@@ -1,5 +1,5 @@
 rules:
-  - id: insecure-methods
+  - id: mybatis-sql-xml
     patterns:
       - pattern-not-regex: \${ew.customSqlSegment}
       - pattern: |

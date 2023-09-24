@@ -1,0 +1,12 @@
+rules:
+  - id: ssti-freemarker
+    patterns:
+      - pattern: |
+          import freemarker
+          ...
+      - pattern:
+          $CON.setTemplateLoader
+    message:  please set TemplateClassResolver.SAFER_RESOLVER to filter
+    languages:
+      - java
+    severity: ERROR

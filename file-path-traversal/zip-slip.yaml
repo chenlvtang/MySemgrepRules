@@ -1,0 +1,20 @@
+rules:
+  - id: zip-slip
+    patterns:
+      - metavariable-pattern:
+          metavariable: $NAME
+          pattern-regex: (.*)[e|E](.*)
+      - pattern-either:
+          - pattern: |
+              $A = $B(..., $NAME.getName());
+              ...
+          - pattern: |
+              $A = ... + $NAME.getName();
+              ...
+          - pattern: $NAME.getName()
+      - pattern: 
+          $C = new File(...,$A)
+    message: please filter the entry.getName()
+    languages:
+      - java
+    severity: ERROR
