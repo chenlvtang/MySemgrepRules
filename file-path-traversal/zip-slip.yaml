@@ -1,3 +1,4 @@
+#test
 rules:
   - id: zip-slip
     patterns:
